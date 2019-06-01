@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Bank Accounts</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<main role="main" class="container">
+    <table  class="table table-striped">
+        <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Name</th>
+            <th>Account Type</th>
+            <th>Balance Date</th>
+            <th>Currency</th>
+            <th>Opening Available Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${accounts}">
+            <td> <a th:href="@{/transactions(accId=${account.accountNo})}"><span th:text="${account.accountNo}"> </span></a></td>
+            <td><span th:text="${account.accountName}"> Account Name </span></td>
+            <td><span th:text="${account.accountType}"> Account Type </span></td>
+            <td><span th:text="${account.balDate}"> Balance Date </span></td>
+            <td><span th:text="${account.currency}"> Currency </span></td>
+            <td><span th:text="${account.availBal}" class="balance" > Available Balance </span></td>
+
+        </tr>
+        </tbody>
+    </table>
+</main>
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Bank Accounts</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<main role="main" class="container">
+    <table  class="table table-striped">
+        <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Name</th>
+            <th>Value Date</th>
+            <th>Currency</th>
+            <th>Debit Amount</th>
+            <th>Credit Amount</th>
+            <th>Debit/Credit</th>
+            <th>Transaction Narrative</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction : ${transactions}">
+            <td><span th:text="${transaction.accountNo}"> </span></a></td>
+            <td><span th:text="${transaction.accountName}"> Account Name </span></td>
+            <td><span th:text="${transaction.valueDate}"> Value Date </span></td>
+            <td><span th:text="${transaction.currency}"> Currency </span></td>
+            <td><span th:text="${transaction.debitAmount}"> Debit Amount </span></td>
+            <td><span th:text="${transaction.creditAmount}"> Credit Amount </span></td>
+            <td><span th:text="${transaction.transactionType}"> Transaction type </span></td>
+            <td><span th:text="${transaction.transactionNarrative}"> Narrative </span></td>
+
+        </tr>
+        </tbody>
+    </table>
+</main>
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
